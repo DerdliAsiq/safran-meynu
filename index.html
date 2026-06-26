@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAFRAN RESTORANI | Rəqəmsal Menyu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6a1b9a; /* Saffron flower purple */
+            --secondary-color: #f9a826; /* Saffron stigma orange/gold */
+            --bg-color: #faf8f5;
+            --text-color: #333;
+            --light-text: #777;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .gold-accent {
+            color: var(--secondary-color);
+        }
+
+        .nav-categories {
+            display: flex;
+            overflow-x: auto;
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .nav-categories::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
+        }
+
+        .category-btn {
+            background: none;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            color: var(--light-text);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .category-btn.active {
+            color: var(--primary-color);
+            font-weight: 600;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .menu-section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .menu-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 2rem;
+            border-bottom: 2px dashed #ddd;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .item-details {
+            max-width: 75%;
+        }
+
+        .item-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 0 0.25rem 0;
+            color: var(--text-color);
+        }
+
+        .item-desc {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin: 0;
+        }
+
+        .item-price {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            white-space: nowrap;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            background-color: #222;
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .item-name { font-size: 1.1rem; }
+            .item-price { font-size: 1.1rem; }
+            .menu-item { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SAFRAN <span class="gold-accent">RESTORANI</span></h1>
+        <p>Heydər Əliyev Prospekti 447</p>
+        <p>+994 55 393 77 17</p>
+    </header>
+
+    <div class="nav-categories">
+        <button class="category-btn active" onclick="showSection('seher')">Səhər Yeməyi</button>
+        <button class="category-btn" onclick="showSection('qelyanalti')">Qəlyanaltı</button>
+        <button class="category-btn" onclick="showSection('salatlar')">Salatlar</button>
+        <button class="category-btn" onclick="showSection('kabablar')">Kabablar</button>
+        <button class="category-btn" onclick="showSection('burger')">Burger & Krep</button>
+        <button class="category-btn" onclick="showSection('isti')">İsti İçkilər</button>
+    </div>
+
+    <div class="container">
+        
+        <div id="seher" class="menu-section active">
+            <h2 class="section-title">Səhər yeməyi</h2>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Sadə omlet</h3>
+                    <p class="item-desc">2 yumurta</p>
+                </div>
+                <div class="item-price">3 AZN</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Pendirli omlet</h3>
+                    <p class="item-desc">yumurta, pendir, duz, istiot</p>
+                </div>
+                <div class="item-price">4.50 AZN</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Sucuklu yumurta</h3>
+                    <p class="item-desc">yumurta, sucuk, duz, istiot</p>
+                </div>
+                <div class="item-price">4.50 AZN</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Qovurmalı yumurta</h3>
+                    <p class="item-desc">yumurta, ət (qoyun və ya mal), soğan, duz, istiot</p>
+                </div>
+                <div class="item-price">6 AZN</div>
+            </div>
+        </div>
+
+        <div id="qelyanalti" class="menu-section">
+            <h2 class="section-title">Qəlyanaltı (İsti və Soyuq)</h2>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Siqara börəyi (pendirli)</h3>
+                    <p class="item-desc">ağ pendir, yumurta, şüyüd, cəfəri, duz</p>
+                </div>
+                <div class="item-price">3.50 AZN</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Pendir çubukları</h3>
+                    <p class="item-desc">sərt pendir, yumurta, un, pendir, duz</p>
+                </div>
+                <div class="item-price">6 AZN</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Kombo tabağı</h3>
+                    <p class="item-desc">burger və ya sendviç, kartof free, içki və s</p>
+                </div>
+                <div class="item-price">8 AZN</div>
+            </div>
+        </div>
+
+        <div id="salatlar" class="menu-section">
+            <h2 class="section-title">Salatlar və Məzələr</h2>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Safran salatı</h3>
+                    <p class="item-desc">toyuq əti, kahı, qırmızı kələm, qarğıdalı, pendir və s.</p>
+                </div>
+                <div class="item-price">5 AZN</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Krevetkalı Sezar salatı</h3>
+                    <p class="item-desc">toyuq əti, kahı, suxarı, yumurta, krevetka və s.</p>
+                </div>
+                <div class="item-price">12 AZN</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Çiğ köftə</h3>
+                    <p class="item-desc">bulğur, soğan, sarımsaq, ədviyyatlar və s.</p>
+                </div>
+                <div class="item-price">6 AZN</div>
+            </div>
+        </div>
+
+        <div id="kabablar" class="menu-section">
+            <h2 class="section-title">Kabablar</h2>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Quzu şiş</h3>
+                    <p class="item-desc">quzu əti, düyü, soğan, pomidor, bibər, cəfəri</p>
+                </div>
+                <div class="item-price">9.50 AZN</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Adana lahmacun</h3>
+                    <p class="item-desc">mal əti, soğan, pomidor, bibər, cəfəri</p>
+                </div>
+                <div class="item-price">10 AZN</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Quzu pirzola</h3>
+                    <p class="item-desc">quzu pirzola, soğan, pomidor, cəfəri</p>
+                </div>
+                <div class="item-price">10.50 AZN</div>
+            </div>
+        </div>
+
+        <div id="burger" class="menu-section">
+            <h2 class="section-title">Burgerlər & Kreplər</h2>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Çizburger</h3>
+                </div>
+                <div class="item-price">5.50 AZN</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Double burger</h3>
+                </div>
+                <div class="item-price">7.50 AZN</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Ətli krep</h3>
+                    <p class="item-desc">yumurta, mal əti, soğan, bibər və s.</p>
+                </div>
+                <div class="item-price">8.50 AZN</div>
+            </div>
+        </div>
+
+        <div id="isti" class="menu-section">
+            <h2 class="section-title">Qəhvə & Çay</h2>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Safran çay (çaynik)</h3>
+                </div>
+                <div class="item-price">6 AZN</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Cappuccino</h3>
+                </div>
+                <div class="item-price">4 AZN</div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-details">
+                    <h3 class="item-name">Osmanlı qəhvəsi</h3>
+                </div>
+                <div class="item-price">4 AZN</div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Bizi seçdiyiniz üçün təşəkkür edirik.</p>
+        <p>&copy; 2026 Safran Restoranı</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.menu-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Remove active class from all buttons
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked button
+            event.currentTarget.classList.add('active');
+            
+            // Scroll smoothly to top of menu
+            window.scrollTo({
+                top: document.querySelector('.nav-categories').offsetTop - 10,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
