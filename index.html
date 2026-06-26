@@ -7,168 +7,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #6a1b9a; /* Saffron flower purple */
-            --secondary-color: #f9a826; /* Saffron stigma orange/gold */
+            --primary-color: #6a1b9a;
+            --secondary-color: #f9a826;
             --bg-color: #faf8f5;
             --text-color: #333;
             --light-text: #777;
         }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            margin: 0;
-            font-size: 2.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        header p {
-            margin: 0.5rem 0 0;
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        .gold-accent {
-            color: var(--secondary-color);
-        }
-
-        .nav-categories {
-            display: flex;
-            overflow-x: auto;
-            background-color: white;
-            padding: 1rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            scrollbar-width: none; /* Firefox */
-        }
-
-        .nav-categories::-webkit-scrollbar {
-            display: none; /* Safari and Chrome */
-        }
-
-        .category-btn {
-            background: none;
-            border: none;
-            padding: 0.5rem 1.2rem;
-            font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
-            color: var(--light-text);
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
-
-        .category-btn.active {
-            color: var(--primary-color);
-            font-weight: 600;
-            border-bottom: 2px solid var(--primary-color);
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .menu-section {
-            display: none;
-            animation: fadeIn 0.5s;
-        }
-
-        .menu-section.active {
-            display: block;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
-            font-size: 2rem;
-            border-bottom: 2px dashed #ddd;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-            transition: transform 0.2s ease;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        .item-details {
-            max-width: 75%;
-        }
-
-        .item-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin: 0 0 0.25rem 0;
-            color: var(--text-color);
-        }
-
-        .item-desc {
-            font-size: 0.9rem;
-            color: var(--light-text);
-            margin: 0;
-        }
-
-        .item-price {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--secondary-color);
-            white-space: nowrap;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 1rem;
-            background-color: #222;
-            color: #aaa;
-            font-size: 0.9rem;
-            margin-top: 2rem;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+        header { background-color: var(--primary-color); color: white; text-align: center; padding: 2rem 1rem; }
+        header h1 { font-family: 'Playfair Display', serif; margin: 0; font-size: 2.5rem; letter-spacing: 2px; text-transform: uppercase; }
+        header p { margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.9; }
+        .gold-accent { color: var(--secondary-color); }
+        .nav-categories { display: flex; overflow-x: auto; background-color: white; padding: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; scrollbar-width: none; }
+        .nav-categories::-webkit-scrollbar { display: none; }
+        .category-btn { background: none; border: none; padding: 0.5rem 1rem; font-size: 0.95rem; font-family: 'Poppins', sans-serif; color: var(--light-text); cursor: pointer; white-space: nowrap; border-bottom: 2px solid transparent; transition: all 0.3s; }
+        .category-btn:hover { color: var(--primary-color); }
+        .category-btn.active { color: var(--primary-color); font-weight: 600; border-bottom: 2px solid var(--primary-color); }
+        .container { max-width: 900px; margin: 1.5rem auto; padding: 0 1rem; }
+        .menu-section { display: none; animation: fadeIn 0.4s; }
+        .menu-section.active { display: block; }
+        .sub-category-title { font-family: 'Playfair Display', serif; color: var(--primary-color); font-size: 1.8rem; border-bottom: 2px dashed #ddd; padding-bottom: 0.5rem; margin: 2rem 0 1rem 0; }
+        .menu-item { display: flex; justify-content: space-between; align-items: flex-start; background: white; padding: 1rem 1.5rem; border-radius: 8px; margin-bottom: 0.8rem; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
+        .set-menu { background-color: #fffaf0; border-left: 5px solid var(--secondary-color); }
+        .item-details { max-width: 75%; }
+        .item-name { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.2rem 0; color: var(--text-color); }
+        .item-desc { font-size: 0.85rem; color: var(--light-text); margin: 0; }
+        .item-price { font-size: 1.1rem; font-weight: 600; color: var(--secondary-color); white-space: nowrap; margin-left: 1rem; }
+        footer { text-align: center; padding: 2rem 1rem; background-color: #222; color: #aaa; font-size: 0.9rem; margin-top: 2rem; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 600px) {
-            header h1 { font-size: 2rem; }
-            .item-name { font-size: 1.1rem; }
-            .item-price { font-size: 1.1rem; }
-            .menu-item { padding: 1rem; }
+            header h1 { font-size: 1.8rem; }
+            .item-details { max-width: 65%; }
+            .item-name { font-size: 1rem; }
+            .item-desc { font-size: 0.8rem; }
+            .item-price { font-size: 1rem; }
         }
     </style>
 </head>
@@ -176,222 +49,400 @@
 
     <header>
         <h1>SAFRAN <span class="gold-accent">RESTORANI</span></h1>
-        <p>Heydər Əliyev Prospekti 447</p>
-        <p>+994 55 393 77 17</p>
+        <p>Heydər Əliyev Prospekti 447 | +994 55 393 77 17</p>
     </header>
 
     <div class="nav-categories">
         <button class="category-btn active" onclick="showSection('seher')">Səhər Yeməyi</button>
-        <button class="category-btn" onclick="showSection('qelyanalti')">Qəlyanaltı</button>
-        <button class="category-btn" onclick="showSection('salatlar')">Salatlar</button>
-        <button class="category-btn" onclick="showSection('kabablar')">Kabablar</button>
-        <button class="category-btn" onclick="showSection('burger')">Burger & Krep</button>
-        <button class="category-btn" onclick="showSection('isti')">İsti İçkilər</button>
+        <button class="category-btn" onclick="showSection('qelyanalti')">Qəlyanaltı & Salat</button>
+        <button class="category-btn" onclick="showSection('isti_yem')">İsti Yeməklər</button>
+        <button class="category-btn" onclick="showSection('fastfood')">Fast Food & Dönər</button>
+        <button class="category-btn" onclick="showSection('sirniyyat')">Şirniyyat & Çay</button>
+        <button class="category-btn" onclick="showSection('s_ickiler')">Soyuq İçkilər</button>
     </div>
 
     <div class="container">
         
+        <!-- SƏHƏR YEMƏYİ -->
         <div id="seher" class="menu-section active">
-            <h2 class="section-title">Səhər yeməyi</h2>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Sadə omlet</h3>
-                    <p class="item-desc">2 yumurta</p>
-                </div>
-                <div class="item-price">3 AZN</div>
-            </div>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Pendirli omlet</h3>
-                    <p class="item-desc">yumurta, pendir, duz, istiot</p>
-                </div>
-                <div class="item-price">4.50 AZN</div>
-            </div>
+            <h2 class="sub-category-title">Səhər Yeməyi</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sadə omlet</h3><p class="item-desc">2 yumurta</p></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Göz omlet</h3><p class="item-desc">2 yumurta</p></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Pendirli omlet</h3><p class="item-desc">Yumurta, pendir, duz, istiot</p></div><div class="item-price">4.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sucuklu yumurta</h3><p class="item-desc">Yumurta, sucuk, duz, istiot</p></div><div class="item-price">4.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Pomidor yumurta</h3><p class="item-desc">Yumurta, pomidor, duz, istiot</p></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Qovurmalı yumurta</h3><p class="item-desc">Yumurta, ət (qoyun və ya mal), soğan, duz, istiot</p></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sucuklu pomidor yumurta</h3><p class="item-desc">Yumurta, sucuk, pomidor, acı bibər, göyərti, duz, istiot</p></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Basdırmalı yumurta</h3><p class="item-desc">Yumurta, basdırma, duz, istiot</p></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Kükü</h3><p class="item-desc">Yumurta, göyərti, duz, istiot</p></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Göbələkli omlet</h3><p class="item-desc">Yumurta, göbələk, soğan, duz, istiot</p></div><div class="item-price">5 AZN</div></div>
 
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Sucuklu yumurta</h3>
-                    <p class="item-desc">yumurta, sucuk, duz, istiot</p>
-                </div>
-                <div class="item-price">4.50 AZN</div>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Qovurmalı yumurta</h3>
-                    <p class="item-desc">yumurta, ət (qoyun və ya mal), soğan, duz, istiot</p>
-                </div>
-                <div class="item-price">6 AZN</div>
-            </div>
+            <h2 class="sub-category-title">Səhər Yeməyi Setləri</h2>
+            <div class="menu-item set-menu"><div class="item-details"><h3 class="item-name">Günəşin Dadı Seti (1 nəfər)</h3><p class="item-desc">Çay, xiyar, pomidor, zeytun çeşidləri, ağ pendir, bal, kərə yağı, Gəncə qaymağı, kolbasa (halal), sosiska (halal), göz yumurta, çörək, pankek, siqara böreyi, simit, poğaça</p></div><div class="item-price">12 AZN</div></div>
+            <div class="menu-item set-menu"><div class="item-details"><h3 class="item-name">Bərəkətli Səhər Seti (2 nəfər)</h3><p class="item-desc">Çörək çeşidləri, pankek, siqara böreyi, simit, poğaça, kolbasa/sosiska, kartof fri, qaynadılmış yumurta, pomidor yumurta, təzə meyvələr, çay, xiyar, pomidor, zeytun, pendir, bal, kərə yağı, Gəncə qaymağı, cem, tahin, şokokrem, kəsmik</p></div><div class="item-price">25 AZN</div></div>
+            <div class="menu-item set-menu"><div class="item-details"><h3 class="item-name">Safran Ailə Seti (4 nəfər)</h3><p class="item-desc">Çörək çeşidləri, pankeklər, siqara böreyi, simit, poğaça, yumurtalı çörək, kolbasa/sosiska, kartof fri, qaynadılmış/pomidor yumurta, limitsiz çay, xiyar, pomidor, zeytun, pendir, bal, kərə yağı, Gəncə qaymağı, cem, tahin, şokokrem, kəsmik, təzə meyvələr, əncir/çiyələk mürəbbəsi</p></div><div class="item-price">35 AZN</div></div>
         </div>
 
+        <!-- QƏLYANALTI & SALATLAR -->
         <div id="qelyanalti" class="menu-section">
-            <h2 class="section-title">Qəlyanaltı (İsti və Soyuq)</h2>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Siqara börəyi (pendirli)</h3>
-                    <p class="item-desc">ağ pendir, yumurta, şüyüd, cəfəri, duz</p>
-                </div>
-                <div class="item-price">3.50 AZN</div>
-            </div>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Pendir çubukları</h3>
-                    <p class="item-desc">sərt pendir, yumurta, un, pendir, duz</p>
-                </div>
-                <div class="item-price">6 AZN</div>
-            </div>
+            <h2 class="sub-category-title">Qəlyanaltı (İsti və Soyuq)</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Siqara börəyi (pendirli)</h3><p class="item-desc">Ağ pendir, yumurta, şüyüd, cəfəri, duz</p></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Siqara börəyi (toyuqlu)</h3><p class="item-desc">Toyuq əti, soğan, göyərti, duz, istiot</p></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Kartof fri (kiçik)</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Kartof fri (böyük)</h3></div><div class="item-price">4.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Pendir çubukları</h3><p class="item-desc">Sərt pendir, yumurta, un, pendir, duz</p></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Soğan kroket</h3><p class="item-desc">Soğan, yumurta, un, pendir</p></div><div class="item-price">4.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Nuggets</h3><p class="item-desc">Toyuq əti, ədviyyatlar</p></div><div class="item-price">4.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Nuggets fri</h3><p class="item-desc">Toyuq əti, ədviyyatlar, kartof</p></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Kombo tabağı</h3><p class="item-desc">Burger və ya sendviç, kartof fri, içki</p></div><div class="item-price">8 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq qanadları</h3><p class="item-desc">Toyuq qanadları, ədviyyatlar, kartof fri, sous</p></div><div class="item-price">7.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Blinçik ətli</h3></div><div class="item-price">1 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Blinçik şorlu</h3></div><div class="item-price">0.80 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Pendir assorti</h3></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Turşu assorti</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Xiyar turşusu</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Qırmızı pomidor əzməsi</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Kal pomidor turşusu</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Kolbasa assorti</h3></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Süzmə</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Limon</h3></div><div class="item-price">1 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ağ kələm turşusu</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Çörək assorti</h3></div><div class="item-price">2 AZN</div></div>
 
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Kombo tabağı</h3>
-                    <p class="item-desc">burger və ya sendviç, kartof free, içki və s</p>
-                </div>
-                <div class="item-price">8 AZN</div>
-            </div>
+            <h2 class="sub-category-title">Salatlar və Məzələr</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Safran salatı</h3><p class="item-desc">Toyuq əti, kahı, qırmızı kələm, qarğıdalı, pendir</p></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Krevetkalı Sezar salatı</h3><p class="item-desc">Toyuq əti, kahı, suxarı, yumurta, krevetka</p></div><div class="item-price">12 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sezar salatı</h3><p class="item-desc">Toyuq əti, kahı, suxarı, yumurta, zeytun yağı</p></div><div class="item-price">7 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Yunan salatı</h3><p class="item-desc">Pomidor, xiyar, soğan, pendir</p></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Manqal salatı</h3><p class="item-desc">Pomidor, bibər, soğan, badımcan</p></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Mövsüm salatı</h3><p class="item-desc">Mövsümə aid olan meyvə və ya tərəvəzlər</p></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Prenses salatı</h3><p class="item-desc">Toyuq əti, kartof, yumurta, xiyar, mayonez</p></div><div class="item-price">5.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ayliz salatı</h3><p class="item-desc">Toyuq əti, rəngli bibərlər, xiyar, yaşıl noxud</p></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Göbələk salatı</h3><p class="item-desc">Göbələk, kartof, rəngli bibərlər, mayonez</p></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Kök salatı</h3><p class="item-desc">Kök, xiyar, bibər, suxarı</p></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq salatı</h3><p class="item-desc">Toyuq əti, xiyar, qarğıdalı, pendir, yumurta</p></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Çoban salatı</h3><p class="item-desc">Xiyar, pomidor, soğan, limon</p></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Paytaxt salatı</h3><p class="item-desc">Ət, kartof, kök, xiyar, yumurta, noxud</p></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Çuğundur məzəsi</h3><p class="item-desc">Çuğundur, sarımsaq, qoz ləpəsi, mayonez</p></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Şakşuka</h3><p class="item-desc">Badımcan, pomidor, bibər, sarımsaq</p></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Çiğ köftə</h3><p class="item-desc">Bulğur, soğan, sarımsaq, ədviyyatlar</p></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Haydari</h3><p class="item-desc">Qatıq, pendir, sarımsaq, ədviyyatlar</p></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Acılı əzmə</h3><p class="item-desc">Pomidor, bibər, soğan, ədviyyatlar</p></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Kök tarator</h3><p class="item-desc">Qatıq, sarımsaq, ədviyyatlar</p></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Cacıq</h3><p class="item-desc">Qatıq, xiyar, sarımsaq, ədviyyatlar</p></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Xırt xırt badımcan salatı</h3><p class="item-desc">Badımcan, pomidor, bibər</p></div><div class="item-price">7 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Didmə salat (mal əti)</h3><p class="item-desc">Mal əti, qoz</p></div><div class="item-price">4.50 AZN</div></div>
         </div>
 
-        <div id="salatlar" class="menu-section">
-            <h2 class="section-title">Salatlar və Məzələr</h2>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Safran salatı</h3>
-                    <p class="item-desc">toyuq əti, kahı, qırmızı kələm, qarğıdalı, pendir və s.</p>
-                </div>
-                <div class="item-price">5 AZN</div>
-            </div>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Krevetkalı Sezar salatı</h3>
-                    <p class="item-desc">toyuq əti, kahı, suxarı, yumurta, krevetka və s.</p>
-                </div>
-                <div class="item-price">12 AZN</div>
-            </div>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Çiğ köftə</h3>
-                    <p class="item-desc">bulğur, soğan, sarımsaq, ədviyyatlar və s.</p>
-                </div>
-                <div class="item-price">6 AZN</div>
-            </div>
+        <!-- İSTİ YEMƏKLƏR -->
+        <div id="isti_yem" class="menu-section">
+            <h2 class="sub-category-title">Şorbalar</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Mərci şorbası</h3><p class="item-desc">Qırmızı mərcimək, soğan, kök, ədviyyatlar</p></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq şorbası</h3><p class="item-desc">Toyuq əti, kartof, düyü/vermişel, soğan, kök, ədviyyatlar</p></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Düşbərə</h3><p class="item-desc">Un, yumurta, qiymə, soğan, ədviyyatlar</p></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Göbələk şorbası</h3><p class="item-desc">Göbələk, soğan, ədviyyatlar</p></div><div class="item-price">4.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Tomat şorbası</h3><p class="item-desc">Tomat püresi, soğan, ədviyyatlar</p></div><div class="item-price">4.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Lobya şorbası (ətli)</h3><p class="item-desc">Ağ lobya, soğan, ədviyyatlar</p></div><div class="item-price">4 AZN</div></div>
+
+            <h2 class="sub-category-title">Makaronlar</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Spagetti bolognese</h3><p class="item-desc">Spagetti, boloqnese sousu, parmezan pendiri</p></div><div class="item-price">5.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Fettucine alfredo</h3><p class="item-desc">Toyuq əti, göbələk, qaymaq, parmezan pendiri</p></div><div class="item-price">7.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Pomidor souslu toyuq</h3><p class="item-desc">Makaron, pomidor, göbələk, toyuq əti</p></div><div class="item-price">5.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Lazanya</h3><p class="item-desc">Qiymə, lazanya xəmiri, holland pendiri</p></div><div class="item-price">8 AZN</div></div>
+
+            <h2 class="sub-category-title">Toyuq Yeməkləri</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq fajitas</h3><p class="item-desc">Quzu əti, göbələk, soğan, bibər</p></div><div class="item-price">6.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq şnitzel</h3><p class="item-desc">Toyuq əti, çips, kartof fri, ketçup</p></div><div class="item-price">8 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Göbələk souslu şnitzel</h3><p class="item-desc">Toyuq əti, çips, kartof fri, göbələk sousu</p></div><div class="item-price">7.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq sote</h3><p class="item-desc">Toyuq əti, bibər, pomidor, napolitan sousu</p></div><div class="item-price">7 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Kiyevsayağı kotlet</h3><p class="item-desc">Toyuq əti, çips, holland pendiri, kartof</p></div><div class="item-price">6.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Xamada toyuq</h3><p class="item-desc">Bildirçin, düyü, soğan, pomidor, bibər, cəfəri</p></div><div class="item-price">7.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Manastır sayağı toyuq</h3><p class="item-desc">Toyuq əti, göbələk, qaymaq, pomidor</p></div><div class="item-price">7.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Julyen tava</h3><p class="item-desc">Toyuq əti, bibər, göbələk, qaymaq</p></div><div class="item-price">9 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Göbələk qovurma</h3><p class="item-desc">Toyuq əti, göbələk, rəngli bibərlər</p></div><div class="item-price">8 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ciyər qovurma</h3><p class="item-desc">Ciyər, kartof, soğan</p></div><div class="item-price">8 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Tabaka tərəvəzli</h3><p class="item-desc">Xiyar, pomidor, bibər, göyərti, zeytun, limon</p></div><div class="item-price">21 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq çığırtma kartof</h3><p class="item-desc">Toyuq əti, kartof, soğan, yumurta, ədviyyatlar</p></div><div class="item-price">20 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Narlı şabalıdlı çolpa</h3><p class="item-desc">Bütöv toyuq, şabalıd, düyü, nar</p></div><div class="item-price">22 AZN</div></div>
+
+            <h2 class="sub-category-title">Ət Yeməkləri</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Fırın garden</h3><p class="item-desc">Kartof, badımcan, kabak, pomidor</p></div><div class="item-price">11 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Güvəc</h3><p class="item-desc">Quzu və ya dana əti, kartof, pomidor</p></div><div class="item-price">9.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Nar qovurma</h3><p class="item-desc">Quzu və ya dana əti, nar, soğan</p></div><div class="item-price">10.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Şabalıdlı nar qovurma</h3><p class="item-desc">Quzu və ya dana əti, şabalıd, nar, soğan</p></div><div class="item-price">12.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ət sote</h3><p class="item-desc">Quzu və ya dana əti, bibər, pomidor</p></div><div class="item-price">9 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Hünkar bəyəndi</h3><p class="item-desc">Quzu və ya dana əti, soğan, pomidor</p></div><div class="item-price">10.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Beef strogenof</h3><p class="item-desc">Dana əti, göbələk, soğan, qaymaq</p></div><div class="item-price">9 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Quzu qara qovurma</h3><p class="item-desc">Quzu əti, soğan, sarımsaq, ədviyyatlar</p></div><div class="item-price">10 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Biftek</h3><p class="item-desc">Dana əti, yağ, ədviyyatlar</p></div><div class="item-price">10.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Can əti</h3><p class="item-desc">Dana əti, yağ, ədviyyatlar</p></div><div class="item-price">16 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Quzu buğlama (1 kq)</h3><p class="item-desc">Quzu əti, soğan, kartof, bibər, ədviyyatlar</p></div><div class="item-price">22 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ev sayağı tuşonka (kartoflu)</h3><p class="item-desc">Tuşonka, kartof, soğan, ədviyyatlar</p></div><div class="item-price">15 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Şirəli dana (1 kq)</h3><p class="item-desc">Mal əti, nar, alça, ədviyyatlar</p></div><div class="item-price">26 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Xoruz buğlama</h3><p class="item-desc">Kənd xoruzu, soğan, pomidor, kartof</p></div><div class="item-price">40 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Xamalı basdırmalı kartof</h3><p class="item-desc">Kartof, xama, sarımsaq, ədviyyatlar</p></div><div class="item-price">26 AZN</div></div>
+
+            <h2 class="sub-category-title">Köftələr</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Köftə (yoqurtlu)</h3><p class="item-desc">Qarışıq qiymə, soğan, sarımsaq, ədviyyatlar</p></div><div class="item-price">10 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Cullama köftə</h3><p class="item-desc">Qarışıq qiymə, soğan, yumurta, ədviyyatlar</p></div><div class="item-price">11 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Qəssab köftə</h3><p class="item-desc">Qarışıq qiymə, soğan, suxarı, cəfəri</p></div><div class="item-price">10 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Pendirli köftə</h3><p class="item-desc">Qarışıq qiymə, soğan, yumurta, suxarı</p></div><div class="item-price">10 AZN</div></div>
+
+            <h2 class="sub-category-title">Kabablar</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Quzu şiş</h3><p class="item-desc">Quzu əti, düyü, soğan, pomidor, bibər, cəfəri</p></div><div class="item-price">9.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq şiş</h3><p class="item-desc">Toyuq əti, düyü, soğan, pomidor, bibər, cəfəri</p></div><div class="item-price">7 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq qanadı</h3><p class="item-desc">Toyuq qanadı, düyü, soğan, pomidor, bibər, cəfəri</p></div><div class="item-price">7 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Adana</h3><p class="item-desc">Mal əti, düyü, soğan, pomidor, bibər, cəfəri</p></div><div class="item-price">7.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Urfa</h3><p class="item-desc">Mal əti, düyü, soğan, pomidor, bibər, cəfəri</p></div><div class="item-price">7.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Bildirçin</h3><p class="item-desc">Bildirçin, düyü, soğan, pomidor, bibər, cəfəri</p></div><div class="item-price">8.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Adana lahmacun</h3><p class="item-desc">Mal əti, soğan, pomidor, bibər, cəfəri</p></div><div class="item-price">10 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ali nazik</h3><p class="item-desc">Quzu əti, sarımsaq, qatıq, badımcan sousu</p></div><div class="item-price">10.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Quzu pirzola</h3><p class="item-desc">Quzu pirzola, soğan, pomidor, cəfəri</p></div><div class="item-price">10.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Quzu ciyər</h3><p class="item-desc">Ciyər, düyü, soğan, pomidor, bibər, cəfəri</p></div><div class="item-price">7.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Pomidor kababı</h3><p class="item-desc">Mal əti, düyü, soğan, pomidor, bibər, cəfəri</p></div><div class="item-price">8.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">İçalat kababı (quzu)</h3><p class="item-desc">Ürək, böyrək, ciyər, soğan, cəfəri</p></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Döymə kabab</h3></div><div class="item-price">8 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Tikə kabab</h3></div><div class="item-price">8 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Basdırma</h3></div><div class="item-price">8.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">File</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Külləmə kartof</h3></div><div class="item-price">2 AZN</div></div>
+
+            <h2 class="sub-category-title">Plovlar & Sac Yeməkləri</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Şah plov (2 nəfər)</h3><p class="item-desc">Mal əti, düyü, üzüm qurusu, şabalıd</p></div><div class="item-price">8 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Şah plov (1 kq)</h3><p class="item-desc">Mal əti, düyü, üzüm qurusu, şabalıd</p></div><div class="item-price">26 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Fisincan plov</h3><p class="item-desc">Mal əti, qoz turşusu, soğan, düyü</p></div><div class="item-price">10 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Düyü</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Püre</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Makaron</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Spagetti</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq sac</h3><p class="item-desc">Toyuq, soğan, bibər, pomidor, göbələk</p></div><div class="item-price">23 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Quzu sac</h3><p class="item-desc">Quzu əti, soğan, pomidor, bibər, göbələk</p></div><div class="item-price">28 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Dana sac</h3><p class="item-desc">Mal əti, soğan, pomidor, bibər, göbələk</p></div><div class="item-price">28 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Qarışıq sac</h3><p class="item-desc">Mal əti, toyuq, soğan, pomidor, bibər, göbələk</p></div><div class="item-price">34 AZN</div></div>
         </div>
 
-        <div id="kabablar" class="menu-section">
-            <h2 class="section-title">Kabablar</h2>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Quzu şiş</h3>
-                    <p class="item-desc">quzu əti, düyü, soğan, pomidor, bibər, cəfəri</p>
-                </div>
-                <div class="item-price">9.50 AZN</div>
-            </div>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Adana lahmacun</h3>
-                    <p class="item-desc">mal əti, soğan, pomidor, bibər, cəfəri</p>
-                </div>
-                <div class="item-price">10 AZN</div>
-            </div>
+        <!-- FAST FOOD & DÖNƏR -->
+        <div id="fastfood" class="menu-section">
+            <h2 class="sub-category-title">Burgerlər</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Hamburger</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Çizburger</h3></div><div class="item-price">5.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq burger</h3></div><div class="item-price">5.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Double burger</h3></div><div class="item-price">7.50 AZN</div></div>
 
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Quzu pirzola</h3>
-                    <p class="item-desc">quzu pirzola, soğan, pomidor, cəfəri</p>
-                </div>
-                <div class="item-price">10.50 AZN</div>
-            </div>
+            <h2 class="sub-category-title">Kreplər</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuqlu krep</h3><p class="item-desc">Yumurta, toyuq, soğan, bibər</p></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ətli krep</h3><p class="item-desc">Yumurta, mal əti, soğan, bibər</p></div><div class="item-price">8.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Tərəvəzli krep</h3><p class="item-desc">Yumurta, kök, bibər, soğan</p></div><div class="item-price">5.50 AZN</div></div>
+
+            <h2 class="sub-category-title">Lahmacunlar</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sadə lahmacun</h3><p class="item-desc">Mal əti, pomidor, bibər, soğan</p></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Acılı lahmacun</h3><p class="item-desc">Mal əti, pomidor, bibər, soğan, pul bibər</p></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Pendirli lahmacun</h3><p class="item-desc">Mal əti, pomidor, bibər, soğan, pendir</p></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Qozlu lahmacun</h3><p class="item-desc">Mal əti, pomidor, bibər, soğan, qoz</p></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Qarışıq lahmacun</h3><p class="item-desc">Mal əti, pomidor, bibər, soğan, sarımsaq</p></div><div class="item-price">4 AZN</div></div>
+
+            <h2 class="sub-category-title">Pidelər</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Quşbaşı</h3><p class="item-desc">Mal əti, pomidor, bibər</p></div><div class="item-price">8.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Qiyməli</h3><p class="item-desc">Qiymə, pomidor, bibər</p></div><div class="item-price">7 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Qarışıq</h3><p class="item-desc">Mal əti, qiymə, pomidor, bibər, pendir</p></div><div class="item-price">10 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sucuklu</h3><p class="item-desc">Sucuk, pendir</p></div><div class="item-price">8 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Pendirli</h3><p class="item-desc">Pendir, pomidor, rəngli bibər</p></div><div class="item-price">7 AZN</div></div>
+
+            <h2 class="sub-category-title">Pizzalar</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Safran özəl pizza</h3><p class="item-desc">Pendir, toyuq əti, göbələk, soğan, bibər</p></div><div class="item-price">12 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Qarışıq pizza</h3><p class="item-desc">Pendir, sous, toyuq, pomidor, göbələk</p></div><div class="item-price">10 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Marqaritta pizza</h3><p class="item-desc">Pendir, pomidor, sous</p></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Tərəvəzli</h3><p class="item-desc">Pendir, pomidor, bibər, qara zeytun, göbələk</p></div><div class="item-price">7.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuqlu pizza</h3><p class="item-desc">Pendir, sous, toyuq, pomidor, sous</p></div><div class="item-price">8 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sezar pizza</h3><p class="item-desc">Sezar sousu, pendir, kahı, suxarı, toyuq</p></div><div class="item-price">12 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Kolbasalı pizza</h3><p class="item-desc">Pendir, sosiska, sucuk, sous, kolbasa</p></div><div class="item-price">7 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Meksika acılı</h3><p class="item-desc">Pendir, acı bibər, sucuk, qara zeytun, göbələk</p></div><div class="item-price">8 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Americano</h3><p class="item-desc">Pendir, qiymə, göbələk</p></div><div class="item-price">10.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Qiyməli pizza</h3><p class="item-desc">Pendir, qiymə, yumurta, sous</p></div><div class="item-price">9 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Steak pizza</h3><p class="item-desc">Pendir, sous, mal əti</p></div><div class="item-price">14 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Göbələkli pizza</h3><p class="item-desc">Pendir, göbələk, sous</p></div><div class="item-price">7 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sezar krevetkalı pizza</h3><p class="item-desc">Krevetka, sous, pendir, kahı, suxarı, toyuq</p></div><div class="item-price">17 AZN</div></div>
+
+            <h2 class="sub-category-title">Toyuq Dönər</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq dönər (servis)</h3><p class="item-desc">Toyuq əti, pomidor, xiyar</p></div><div class="item-price">6.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq iskəndər</h3><p class="item-desc">Toyuq əti, pomidor, acı bibər, suxarı</p></div><div class="item-price">8 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq dönər çörəkdə</h3><p class="item-desc">Toyuq əti, pomidor, xiyar, sous</p></div><div class="item-price">2.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq dönər lavaşda</h3><p class="item-desc">Toyuq əti, pomidor, xiyar, sous</p></div><div class="item-price">3.40 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq dönər (plov üstü)</h3><p class="item-desc">Toyuq əti, pomidor, xiyar, sous, plov</p></div><div class="item-price">7 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Toyuq şaurma</h3><p class="item-desc">Toyuq əti, pomidor, xiyar, sous</p></div><div class="item-price">3.70 AZN</div></div>
+
+            <h2 class="sub-category-title">Ət Dönər</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ət dönər (servis)</h3><p class="item-desc">Mal əti, pomidor, xiyar</p></div><div class="item-price">8.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ət iskəndər</h3><p class="item-desc">Mal əti, pomidor, acı bibər, suxarı</p></div><div class="item-price">10 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ət dönər çörəkdə</h3><p class="item-desc">Mal əti, pomidor, xiyar, sous</p></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ət dönər lavaşda</h3><p class="item-desc">Mal əti, pomidor, xiyar, sous</p></div><div class="item-price">4.20 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ət dönər (plov üstü)</h3><p class="item-desc">Mal əti, pomidor, xiyar, sous, plov</p></div><div class="item-price">9 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ət şaurma</h3><p class="item-desc">Mal əti, pomidor, xiyar, sous</p></div><div class="item-price">4.50 AZN</div></div>
         </div>
 
-        <div id="burger" class="menu-section">
-            <h2 class="section-title">Burgerlər & Kreplər</h2>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Çizburger</h3>
-                </div>
-                <div class="item-price">5.50 AZN</div>
-            </div>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Double burger</h3>
-                </div>
-                <div class="item-price">7.50 AZN</div>
-            </div>
+        <!-- ŞİRNİYYAT & ÇAY -->
+        <div id="sirniyyat" class="menu-section">
+            <h2 class="sub-category-title">Şirniyyatlar</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Tiramisu</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">San Sebastian</h3></div><div class="item-price">5.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Çiz kek</h3></div><div class="item-price">5.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Krep meyvəli</h3></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Krep roll</h3></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Safran velvet</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sütlac</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Künəfə</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Künəfə dondurmalı</h3></div><div class="item-price">6 AZN</div></div>
 
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Ətli krep</h3>
-                    <p class="item-desc">yumurta, mal əti, soğan, bibər və s.</p>
-                </div>
-                <div class="item-price">8.50 AZN</div>
-            </div>
+            <h2 class="sub-category-title">Waffle</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Klassik Waffle</h3><p class="item-desc">Şokolad, banan</p></div><div class="item-price">7.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sub-tropik Waffle</h3><p class="item-desc">Şokolad, banan, kivi</p></div><div class="item-price">8 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Enerji Waffle</h3><p class="item-desc">Şokolad, banan, ananas, qoz</p></div><div class="item-price">9 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Safran ideal Waffle</h3><p class="item-desc">Qarışıq meyvələr, damla şokolad</p></div><div class="item-price">11 AZN</div></div>
+
+            <h2 class="sub-category-title">Paxlava</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Soyuq paxlava (2 ədəd)</h3></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Kök dilim paxlava</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Türk paxlavası</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Şəkərparə (4 ədəd)</h3></div><div class="item-price">6 AZN</div></div>
+
+            <h2 class="sub-category-title">Çaylar</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Safran çay (çaynik)</h3></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Safran çay (stəkan)</h3></div><div class="item-price">1.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sadə çay (çaynik)</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sadə çay (stəkan)</h3></div><div class="item-price">1 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Bitki çayları</h3></div><div class="item-price">6 AZN</div></div>
+
+            <h2 class="sub-category-title">İsti İçkilər</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Şokolad</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Aromalı isti</h3></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ağ şokolad</h3></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sahlep</h3></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Dondurmalı sahlep</h3></div><div class="item-price">4.50 AZN</div></div>
+
+            <h2 class="sub-category-title">Çay Dəzgahları</h2>
+            <div class="menu-item set-menu"><div class="item-details"><h3 class="item-name">Çay Dəzgahı (2 nəfər)</h3><p class="item-desc">1 ədəd mürəbbə, 1 çaynik çay, qənd, konfet, limon</p></div><div class="item-price">17 AZN</div></div>
+            <div class="menu-item set-menu"><div class="item-details"><h3 class="item-name">Çay Dəzgahı (4 nəfər)</h3><p class="item-desc">2 ədəd mürəbbə, 2 çaynik çay, şirniyyat, şokolad, qənd, konfet, limon</p></div><div class="item-price">27 AZN</div></div>
+
+            <h2 class="sub-category-title">Qəhvələr</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Americano</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Espresso</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Double espresso</h3></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Cappuccino</h3></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Espresso americano</h3></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Latte</h3></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Special latte</h3></div><div class="item-price">4.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Aroma</h3></div><div class="item-price">1 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Mocha</h3></div><div class="item-price">4.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Türk qəhvəsi</h3></div><div class="item-price">2.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Südlü türk qəhvəsi</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Aromalı türk qəhvəsi</h3></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Dibek qəhvəsi</h3></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Osmanlı qəhvəsi</h3></div><div class="item-price">4 AZN</div></div>
+
+            <h2 class="sub-category-title">Filtr Qəhvələr</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Filtr qəhvəsi (2 fincan)</h3></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Syphon dəmləmə</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Chemex dəmləmə</h3></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Süd</h3></div><div class="item-price">1 AZN</div></div>
+
+            <h2 class="sub-category-title">Soyuq Qəhvələr</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ice americano</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ice latte</h3></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ice cappuccino</h3></div><div class="item-price">4 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ice mocha</h3></div><div class="item-price">4.50 AZN</div></div>
+
+            <h2 class="sub-category-title">Mürəbbələr</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Böyürtkən</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Çiyələk</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ağ gilas</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Moruq</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Əncir</h3></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Qarpız</h3></div><div class="item-price">6 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Qoz</h3></div><div class="item-price">6 AZN</div></div>
+
+            <h2 class="sub-category-title">Smoothielər</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Çiyələk</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Şokolad</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Banan</h3></div><div class="item-price">5 AZN</div></div>
+
+            <h2 class="sub-category-title">Milkshake-lər</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Çiyələk</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Şokolad</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Banan</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Karamel</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Yemiş</h3></div><div class="item-price">5 AZN</div></div>
+
+            <h2 class="sub-category-title">Kokteyllər</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Mojito</h3></div><div class="item-price">4.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Çiyələk mojito</h3></div><div class="item-price">4.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Enerji mojito</h3></div><div class="item-price">5 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Safran mojito</h3></div><div class="item-price">5.50 AZN</div></div>
         </div>
 
-        <div id="isti" class="menu-section">
-            <h2 class="section-title">Qəhvə & Çay</h2>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Safran çay (çaynik)</h3>
-                </div>
-                <div class="item-price">6 AZN</div>
-            </div>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Cappuccino</h3>
-                </div>
-                <div class="item-price">4 AZN</div>
-            </div>
+        <!-- SOYUQ İÇKİLƏR -->
+        <div id="s_ickiler" class="menu-section">
+            <h2 class="sub-category-title">Soyuq İçkilər</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Coca Cola (300 ml)</h3></div><div class="item-price">1.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Coca Cola (500 ml)</h3></div><div class="item-price">2 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Coca Cola (1 lt)</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Coca Cola (banka)</h3></div><div class="item-price">2.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Coca Cola Zero (banka)</h3></div><div class="item-price">2.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Fanta (300 ml)</h3></div><div class="item-price">1.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Fanta (500 ml)</h3></div><div class="item-price">2 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Fanta (banka)</h3></div><div class="item-price">2.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sprite (300 ml)</h3></div><div class="item-price">1.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sprite (500 ml)</h3></div><div class="item-price">2 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sprite (1 lt)</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sprite (banka)</h3></div><div class="item-price">2.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Cappy portağal (500 ml)</h3></div><div class="item-price">2 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Cappy şaftalı (500 ml)</h3></div><div class="item-price">2 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Cappy qarışıq tropik (500 ml)</h3></div><div class="item-price">2 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Cappy qarışıq çöplü (200 ml)</h3></div><div class="item-price">1.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Fuse Tea manqo (500 ml)</h3></div><div class="item-price">2 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Fuse Tea şaftalı (500 ml)</h3></div><div class="item-price">2 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Bonaqua qazlı (500 ml)</h3></div><div class="item-price">1 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Bonaqua qazsız (500 ml)</h3></div><div class="item-price">1 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Bonaqua qazlı (1 lt)</h3></div><div class="item-price">1.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sirab qazlı (500 ml)</h3></div><div class="item-price">1.20 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Sirab qazsız (500 ml)</h3></div><div class="item-price">1.20 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Zedazen armud (500 ml)</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Zedazen tər xun (500 ml)</h3></div><div class="item-price">3 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ayran (300 ml)</h3></div><div class="item-price">2 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Ayran</h3></div><div class="item-price">0.80 AZN</div></div>
 
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 class="item-name">Osmanlı qəhvəsi</h3>
-                </div>
-                <div class="item-price">4 AZN</div>
-            </div>
+            <h2 class="sub-category-title">Dondurmalar</h2>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Maraş dondurması (100 qram) - Çiyələk</h3></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Maraş dondurması (100 qram) - Şaftalı</h3></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Maraş dondurması (100 qram) - Şokolad</h3></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Maraş dondurması (100 qram) - Babul</h3></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Maraş dondurması (100 qram) - Karamel</h3></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Maraş dondurması (100 qram) - Banan</h3></div><div class="item-price">3.50 AZN</div></div>
+            <div class="menu-item"><div class="item-details"><h3 class="item-name">Maraş dondurması (100 qram) - Yemiş</h3></div><div class="item-price">3.50 AZN</div></div>
         </div>
 
     </div>
 
     <footer>
-        <p>Bizi seçdiyiniz üçün təşəkkür edirik.</p>
-        <p>&copy; 2026 Safran Restoranı</p>
+        <p>Bizi seçdiyiniz üçün təşəkkür edirik... | Safran_restaurant_gence | +994 55 393 77 17</p>
     </footer>
 
     <script>
         function showSection(sectionId) {
             // Hide all sections
-            document.querySelectorAll('.menu-section').forEach(section => {
-                section.classList.remove('active');
-            });
+            const sections = document.querySelectorAll('.menu-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
             // Remove active class from all buttons
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
             
             // Show selected section
             document.getElementById(sectionId).classList.add('active');
             
             // Add active class to clicked button
-            event.currentTarget.classList.add('active');
-            
-            // Scroll smoothly to top of menu
-            window.scrollTo({
-                top: document.querySelector('.nav-categories').offsetTop - 10,
-                behavior: 'smooth'
-            });
+            event.target.classList.add('active');
         }
     </script>
+
 </body>
 </html>
